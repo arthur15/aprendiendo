@@ -39,6 +39,8 @@ public class Datos extends RecyclerView.Adapter<Datos.ViewHolderDatos> {
 
         public ViewHolderDatos(View itemView) {
             super(itemView);
+
+            /*comentario prueba*/
             tv_nombre_sa  = itemView.findViewById(R.id.tv_nombre_sa);
             tv_direccion_sa = itemView.findViewById(R.id.tv_direccion_sa);
             tv_telefono_sa  = itemView.findViewById(R.id.tv_telefono_sa);
