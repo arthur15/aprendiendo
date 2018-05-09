@@ -35,12 +35,13 @@ public class Datos extends RecyclerView.Adapter<Datos.ViewHolderDatos> {
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
 
-        TextView tv_nombre_sa, tv_direccion_sa, tv_telefono_sa, tv_cumpleanos_sa;
+        TextView tv_id_sa, tv_nombre_sa, tv_direccion_sa, tv_telefono_sa, tv_cumpleanos_sa;
 
         public ViewHolderDatos(View itemView) {
             super(itemView);
 
             /*comentario prueba*/
+            tv_id_sa  = itemView.findViewById(R.id.tv_id_sa);
             tv_nombre_sa  = itemView.findViewById(R.id.tv_nombre_sa);
             tv_direccion_sa = itemView.findViewById(R.id.tv_direccion_sa);
             tv_telefono_sa  = itemView.findViewById(R.id.tv_telefono_sa);
@@ -48,6 +49,7 @@ public class Datos extends RecyclerView.Adapter<Datos.ViewHolderDatos> {
         }
 
         public void asignarDatos(ContactModel datos) {
+            //tv_id_sa.setText(datos.getId().toString());
             tv_nombre_sa.setText(datos.getNombre());
             tv_direccion_sa.setText(datos.getDomicilio());
             tv_telefono_sa.setText(datos.getTelefono());

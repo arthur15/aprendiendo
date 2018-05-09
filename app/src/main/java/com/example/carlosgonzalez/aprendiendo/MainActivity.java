@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 if (!contact.getNombre().equals("") && !contact.getDomicilio().equals("") && !contact.getCumpleanos().equals("")) {
                     cleanEditTexts();
                     Funciones.insertContacto(MainActivity.this, contact);
-                    Toast.makeText(MainActivity.this, "Muy bien, PUTO!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Registro creado!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MainActivity.this, "Captura bien, PUTO!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Faltan datos obligatorios", Toast.LENGTH_SHORT).show();
                 }
 
 
