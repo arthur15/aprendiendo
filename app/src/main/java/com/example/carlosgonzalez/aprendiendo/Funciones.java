@@ -38,7 +38,7 @@ public class Funciones extends AppCompatActivity{
             if (cursor != null && !cursor.isClosed() && cursor.moveToFirst()) {
                 do {
                     ContactModel contacto = new ContactModel();
-                    //contacto.setId(cursor.getInt(cursor.getColumnIndex("id")));
+                    contacto.setId(cursor.getInt(cursor.getColumnIndex("id")));
                     contacto.setNombre(cursor.getString(cursor.getColumnIndex("Nombre")));
                     contacto.setDomicilio(cursor.getString(cursor.getColumnIndex("Direccion")));
                     contacto.setTelefono(cursor.getString(cursor.getColumnIndex("Telefono")));

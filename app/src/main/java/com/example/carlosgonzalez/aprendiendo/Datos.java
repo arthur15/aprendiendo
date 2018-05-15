@@ -1,5 +1,7 @@
 package com.example.carlosgonzalez.aprendiendo;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,11 +13,13 @@ import java.util.ArrayList;
 
 public class Datos extends RecyclerView.Adapter<Datos.ViewHolderDatos> {
 
-    public Datos(ArrayList<ContactModel> listDatos) {
+    public Datos(Context context, ArrayList<ContactModel> listDatos) {
+        this.context = context;
         this.listDatos = listDatos;
     }
 
     ArrayList<ContactModel> listDatos;
+    Context context;
 
     @Override
     public ViewHolderDatos onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -46,10 +50,20 @@ public class Datos extends RecyclerView.Adapter<Datos.ViewHolderDatos> {
             tv_direccion_sa = itemView.findViewById(R.id.tv_direccion_sa);
             tv_telefono_sa  = itemView.findViewById(R.id.tv_telefono_sa);
             tv_cumpleanos_sa = itemView.findViewById(R.id.tv_cumpleanos_sa);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("Selecciona Opcion").
+                            create().show();
+
+                }
+            });
+
         }
 
         public void asignarDatos(ContactModel datos) {
-            //tv_id_sa.setText(datos.getId().toString());
+            tv_id_sa.setText(String.valueOf(datos.getId()));
             tv_nombre_sa.setText(datos.getNombre());
             tv_direccion_sa.setText(datos.getDomicilio());
             tv_telefono_sa.setText(datos.getTelefono());

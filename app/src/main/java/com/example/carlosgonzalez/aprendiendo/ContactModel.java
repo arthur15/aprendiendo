@@ -9,13 +9,13 @@ package com.example.carlosgonzalez.aprendiendo;
 public class ContactModel {
 
     public String nombre, domicilio, telefono, cumpleanos;
-    public Integer id;
+    public int id;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
