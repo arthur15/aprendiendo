@@ -2,7 +2,9 @@ package com.example.carlosgonzalez.aprendiendo;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,8 +56,14 @@ public class Datos extends RecyclerView.Adapter<Datos.ViewHolderDatos> {
                 @Override
                 public void onClick(View view) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setTitle("Selecciona Opcion").
-                            create().show();
+                    final String[] option = {"Editar", "Eliminar"};
+                    builder.setTitle("Selecciona Opcion")
+                            .setItems(option, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Log.i("Dialogos", "Opcion:"+option[which]);
+                                }
+                            }).show();
 
                 }
             });
