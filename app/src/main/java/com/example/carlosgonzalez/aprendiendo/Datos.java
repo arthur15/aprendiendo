@@ -66,7 +66,7 @@ public class Datos extends RecyclerView.Adapter<Datos.ViewHolderDatos> {
 
                                     if(which == 0 )
                                     {
-
+                                    
                                     }
                                     if(which == 1 )
                                     {

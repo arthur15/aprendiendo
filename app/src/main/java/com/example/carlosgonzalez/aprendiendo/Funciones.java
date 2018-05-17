@@ -15,15 +15,20 @@ import java.util.ArrayList;
  */
 
 public class Funciones extends AppCompatActivity{
-    public static void insertContacto(Context context, ContactModel contacto)
-    {
-        DataBase db = DataBase.getInstance(context);
-        SQLiteDatabase dba = db.getWritableDatabase();
+
+    private static ContentValues getContentValues(ContactModel contacto){
         ContentValues cv = new ContentValues();
         cv.put("Nombre", contacto.getNombre());
         cv.put("Direccion", contacto.getDomicilio());
         cv.put("Telefono", contacto.getTelefono());
         cv.put("Cumpleanos", contacto.getCumpleanos());
+        return cv;
+    }
+    public static void insertContacto(Context context, ContactModel contacto)
+    {
+        DataBase db = DataBase.getInstance(context);
+        SQLiteDatabase dba = db.getWritableDatabase();
+        ContentValues cv = getContentValues(contacto);
         dba.insert("agenda",null, cv);
         db.close();
     }
@@ -41,6 +46,20 @@ public class Funciones extends AppCompatActivity{
         }
         return  true;
     }
+
+    public static  boolean editContacto (Context context, ContactModel contacto){
+        try{
+            DataBase db = DataBase.getInstance(context);
+            SQLiteDatabase dba = db.getWritableDatabase();
+            ContentValues cv = getContentValues(contacto);
+            dba.update("agenda", cv, "id="+contacto.getId(),null);
+        }catch (Exception e){
+            Log.e ("error modificar", e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
 
     public static ArrayList<ContactModel> leerContacto(Context context){
         ArrayList <ContactModel> contactos = new ArrayList<>();
