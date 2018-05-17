@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -62,6 +63,19 @@ public class Datos extends RecyclerView.Adapter<Datos.ViewHolderDatos> {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     Log.i("Dialogos", "Opcion:"+option[which]);
+
+                                    if(which == 0 )
+                                    {
+
+                                    }
+                                    if(which == 1 )
+                                    {
+                                        if(Funciones.deleteContacto(context,listDatos.get(getAdapterPosition()).getId())){
+                                            listDatos.remove(getAdapterPosition());
+                                            notifyItemRemoved(getAdapterPosition());
+                                        }
+                                    }
+
                                 }
                             }).show();
 

@@ -28,6 +28,19 @@ public class Funciones extends AppCompatActivity{
         db.close();
     }
 
+    public static boolean deleteContacto (Context context, int id) {
+
+        try {
+            DataBase db = DataBase.getInstance(context);
+            SQLiteDatabase dba = db.getWritableDatabase();
+            dba.delete("agenda", "id=" + id, null);
+            dba.close();
+        }catch(Exception e){
+            Log.e ("error delete",e.getMessage());
+            return  false;
+        }
+        return  true;
+    }
 
     public static ArrayList<ContactModel> leerContacto(Context context){
         ArrayList <ContactModel> contactos = new ArrayList<>();
